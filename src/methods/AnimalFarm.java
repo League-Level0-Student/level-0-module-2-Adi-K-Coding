@@ -9,6 +9,7 @@ import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class AnimalFarm {
@@ -19,7 +20,13 @@ AnimalFarm() {
 	 * animal.
 	 */
 
+	ImageIcon rockImage = new ImageIcon(getClass().getResource("Farm.jpg"));
+	Object[] objects= {"Cow","Duck","Dog","Cat","Llama"};
+int sound =JOptionPane.showOptionDialog(null, "Choose a Sound.", "Animal Sounds", 1, 1, rockImage, objects, 0);
 	/* 2. Make it so that the user can keep entering new animals. */
+if(sound==4) {
+playLlama();	
+}
 }
 
 void playMoo() {
@@ -34,6 +41,13 @@ void playWoof() {
 	playNoise(woofFile);
 }
 
+void playLlama() {
+	playNoise(llamaFile);
+}
+
+void playMeow() {
+	playNoise(meowFile);
+}
 String quackFile = "quack.wav";
 String mooFile = "moo.wav";
 String woofFile = "woof.wav";
